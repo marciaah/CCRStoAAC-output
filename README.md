@@ -29,7 +29,7 @@ Citation
 If you find this information useful for your work, please mention us: 
 **Manuscript in preparation**
 *Mapping the Constrained Coding Regions in the human genome to their corresponding proteins*,
-Marcia A. Hasenahuer, Alba Sanchis-Juan, Roman A. Laskowski, James A. Baker, James D. Stephenson, Christine A. Orengo, F Lucy Raymond, Janet M. Thornton
+Marcia A. Hasenahuer, Alba Sanchis-Juan, Roman A. Laskowski, James A. Baker, James D. Stephenson, Christine A. Orengo, F. Lucy Raymond, Janet M. Thornton
 
 
 ### Sources of information
