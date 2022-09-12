@@ -14,7 +14,7 @@ Briefly, in the CCRs model, each of the variant-depleted (constrained) regions i
 Then, a linear regression is calculated comparing the weights and the CpG density of the regions, as an indicator of the region mutability upon spontaneous deamination of methylated cytosines. Regions with a greater weighted distance between protein-changing variants than expected based upon their CpG density (residual from the linear regression), are predicted to be under the greatest constraint. The residuals of the regression are ranked in CCRs percentiles (CCRpct) from 0 to 100, where: 
 
  - CCRpct = 0 : unconstrained regions (i.e. regions *with* gnomAD variants)
- - > 0 CCRpct ≤ 100 : constrained regions (i.e. regions *without* gnomAD variants). 
+ - \> 0 CCRpct ≤ 100 : constrained regions (i.e. regions *without* gnomAD variants). 
  
  The longer a constrained region and the bigger its CpG content, in general, the higher its CCRpct will be.
 
@@ -29,7 +29,7 @@ Citation
 If you find this information useful for your work, please mention us: 
 **Manuscript in preparation**
 *Mapping the Constrained Coding Regions in the human genome to their corresponding proteins*,
-Marcia A. Hasenahuer, Alba Sanchis-Juan, Roman A. Laskowski, James A. Baker, James D. Stephenson, Christine A. Orengo,F Lucy Raymond, Janet M. Thornton
+Marcia A. Hasenahuer, Alba Sanchis-Juan, Roman A. Laskowski, James A. Baker, James D. Stephenson, Christine A. Orengo, F Lucy Raymond, Janet M. Thornton
 
 
 ### Sources of information
@@ -165,7 +165,7 @@ There were in total  **877,185 amino acid positions**, which have **aac_weighted
 
 ### Why was it not possible to obtain CCRs for all amino acids in all UniProtSP canonical sequences?
 --------
-Some amino acid positions are not annotated with CCRpct (**aac_weighted_pct**), this can be explaine by any of these three reasons:
+Some amino acid positions are not annotated with CCRpct (**aac_weighted_pct**), this can be explained by any of these three reasons:
 
 - Mitochondrial and chromosome Y genes are not considered in the CCRs model, because they lack good coverage in gnomAD3.0, therefore the corresponding proteins are not included.
 
