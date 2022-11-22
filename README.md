@@ -1,11 +1,26 @@
 # Output from CCRStoAAC, plus extra information
---------
-This repository contains the description for the **CCRStoAAC_output.tsv** file, the output from mapping the Constrained Coding Regions (CCRs) in the Human genome, based on [gnomAD](https://gnomad.broadinstitute.org/) and its version 3.0 (76.156  Human genomes, GRCh38), to the amino acids in canonical proteins of [UniProtKB](https://www.uniprot.org/) (version 10-2020), plus extra information regarding gnomAD allele count and allele frequency, quality of regions, protein features and inter-species conservation. For further details, see the [CCRtoAAC R package repository](https://github.com/marciaah/CCRStoAAC.git) and our **manuscript in preparation**. 
-We keep the output in this separate repository, so you can also have access to this information without having to install the CCRtoAAC R package.
+
+This repository contains the description for the **CCRStoAAC_output.tsv** file, the output from mapping the Constrained Coding Regions (CCRs) in the Human genome, based on [gnomAD](https://gnomad.broadinstitute.org/) and its version 3.0 (76.156  Human genomes, GRCh38), to the amino acids in canonical proteins of [UniProtKB](https://www.uniprot.org/) (version 10-2020), plus extra information regarding gnomAD allele count and allele frequency, quality of regions, protein features and inter-species conservation. 
+
+For further details, see the [CCRtoAAC R package repository](https://github.com/marciaah/CCRStoAAC.git). 
+We keep the output in this separate repository, so you can have access to a simplified version of the CCRs mapped to canonical protein sequences plus the annotation of different protein features.
 
 
-### Overview
---------
+## Citation
+
+If you find this package useful for your work, please mention us:
+
+**Manuscript in Press**:
+
+*'Mapping the Constrained Coding Regions in the human genome to their corresponding proteins'* 
+
+Marcia A. Hasenahuer, Alba Sanchis-Juan, Roman A. Laskowski, James A. Baker, James D. Stephenson, Christine A. Orengo,F Lucy Raymond, Janet M. Thornton. 
+
+Available online 21 November 2022, 167892 https://doi.org/10.1016/j.jmb.2022.167892
+
+
+## Overview
+
 Constrained Coding Regions (CCRs) are focal regions in the Human coding genome depleted of protein changing variations (i.e. missense, stop gain/loss, frameshift indels), see [Havrilla et al., 2019, Nature Genetics](https://doi.org/10.1038%2Fs41588-018-0294-6) ( [GitHub](https://github.com/quinlan-lab/ccr) ) for further details. 
 
 Briefly, in the CCRs model, each of the variant-depleted (constrained) regions in the Human coding genome is weighted based on 
@@ -16,24 +31,15 @@ Then, a linear regression is calculated comparing the weights and the CpG densit
  - CCRpct = 0 : unconstrained regions (i.e. regions *with* gnomAD variants)
  - \> 0 CCRpct ≤ 100 : constrained regions (i.e. regions *without* gnomAD variants). 
  
- The longer a constrained region and the bigger its CpG content, in general, the higher its CCRpct will be.
-
+The longer a constrained region and the bigger its CpG content, in general, the higher its CCRpct will be.
 
 These regions were originally identified using the whole exome sequencing data from large cohorts of healthy control populations aggregated in [gnomAD](https://gnomad.broadinstitute.org/) (The Genome Aggregation Database) version 2.0, with GRCh37/hg19 reference genome, including 125.748 human exomes. 
 
 Here, we extended this by re-calculating the CCRs using [gnomAD3.0](https://gnomad.broadinstitute.org/news/2019-10-gnomad-v3-0/) (GRCh38, 71.702 samples of Human genomes) and mapping these regions to the amino acids in Human protein sequences of UniProtKB. We believe that CCRs have the potential to highlight key functional amino acids in both ordered and intrinsically disordered proteins, lying in protein regions which are constrained.
 
 
-Citation
---------
-If you find this information useful for your work, please mention us: 
-**Manuscript in preparation**
-*Mapping the Constrained Coding Regions in the human genome to their corresponding proteins*,
-Marcia A. Hasenahuer, Alba Sanchis-Juan, Roman A. Laskowski, James A. Baker, James D. Stephenson, Christine A. Orengo, F. Lucy Raymond, Janet M. Thornton
+## Sources of information
 
-
-### Sources of information
---------
 The information presented in this file was produced or obtained using the following methods and databases:
 
 | Method/Database | Description | Version/date of accession |
@@ -48,10 +54,10 @@ The information presented in this file was produced or obtained using the follow
 | [MobiDB](https://mobidb.bio.unipd.it/) | Disorder and mobility annotations | April 2021 |
 | [ELM](http://elm.eu.org/searchdb.html) | [all instances](http://elm.eu.org/instances.html?q=*) filtered for Human | February 2021 | 
 
-Further updates will include newer versions of the data.
 
-### The columns in the CCRStoAAC_output.tsv file
---------
+
+# The columns in the CCRStoAAC_output.tsv file
+
 In this file, each line represents an amino acid position (uniprotAcc + sequence position) from a UniProtKB/SwissProt canonical protein, with different types of annotations organized 47 in columns as follows:
  
 - **uniprotAcc**: UniProtKB/SwissProt canonical protein identifier. Includes the extension “-#” when there are more isoforms available for this protein
@@ -80,7 +86,7 @@ In this file, each line represents an amino acid position (uniprotAcc + sequence
 
 - **region_start_end**: captures the boundaries of the CCRs regions, in amino acid start and end positions
 - **region_length**: captures the length of the CCRs regions, in amount of consecutive amino acid positions
-- **warning_prot**: some proteins carry a **warning_prot**=-1 flag. Please, be cautious with these 45 proteins listed in **warning_proteins.tsv** when using their CCRpct. They have either more than one transcript or more than one gene that can encode for them, hence they might have some amino acids with morethan one CCRpct. As an example, the protein [P62805](https://www.uniprot.org/uniprotkb/P62805/entry) (H4 clustered histone) is the product of 14 different genes and some amino acids you will see 14 rows with information.
+- **warning_prot**: some proteins carry a **warning_prot**=-1 flag. Please, be cautious with these 45 proteins listed in **warning_proteins.tsv** when using their CCRpct. They have either more than one transcript or more than one gene that can encode for them, hence they might have some amino acids with more than one CCRpct. As an example, the protein [P62805](https://www.uniprot.org/uniprotkb/P62805/entry) (H4 clustered histone) is the product of 14 different genes and some amino acids you will see 14 rows with information.
 - **region_flag**: captures if it was possible to map the CCRs percentile for all the amino acids of the region, with the following code:
 
   - 1 : all the amino acids in the region were correctly assigned a CCRpct
@@ -157,14 +163,14 @@ The last 33 columns assign the presence (>=1) or absence (-1) of a protein funct
 - **Benign_miss**: at least one Benign/Likely_Benign missense variant in ClinVar
 - **VUS_conflict_miss**: at least one VUS (variant of uncertain significance) or conflictive interpretations missense variant in ClinVar
 
-### How much of the Human UniProt/SP proteins were effectively mapped with CCRpct?
---------
+## How much of the Human UniProt/SP proteins were effectively mapped with CCRpct?
+
 We were able to assign CCRs percentiles (column **aac_weighted_pct** >= 0) to  at least one amino acid position in **17,366 UniProt/SP canonical proteins**, corresponding to **17,372 genes in human chromosomes 1-22 and X**. This corresponds to **9.825.893 amino acid positions** (unique combinations of **uniprotAcc**+**aac_pos**)
 
 There were in total  **877,185 amino acid positions**, which have **aac_weighted_pct** < 0, i.e. *CCRpct not available* 
 
-### Why was it not possible to obtain CCRs for all amino acids in all UniProtSP canonical sequences?
---------
+## Why was it not possible to obtain CCRs for all amino acids in all UniProtSP canonical sequences?
+
 Some amino acid positions are not annotated with CCRpct (**aac_weighted_pct**), this can be explained by any of these three reasons:
 
 - Mitochondrial and chromosome Y genes are not considered in the CCRs model, because they lack good coverage in gnomAD3.0, therefore the corresponding proteins are not included.
@@ -172,5 +178,3 @@ Some amino acid positions are not annotated with CCRpct (**aac_weighted_pct**), 
 - If there were mismatches between Ensembl protein and UniProt sequences, i.e. <100% coverage and <100% identity, such proteins were not included in the mapping from genomic coordinates to UniProt protein sequences
 
 - Genomic segmental duplications (tandem repeated regions), highly similar regions across the genome (>=90% identity) and also positions with low sequencing coverage (<50% samples with >=10x depth) are not considered by the CCRs pipeline. This is because such regions are of low quality and variants observed there are not reliable. Such unreliable regions generated absence of CCRs percentile (**aac_weighted_pct** < 0) for regions spanning from single amino acids up to complete protein sequences.
-
-
